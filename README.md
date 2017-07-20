@@ -24,3 +24,7 @@ $ npm start
 ```
 
 This will concurrently run the local webpack dev server for the front-end application and local API server on ports 3000 and 3001 respectively.
+
+### Backlog
+
+See (The Trello board)[https://trello.com/b/plihpBPX/finiata] for details of tasks completed and roadmap features and ideas
