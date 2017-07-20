@@ -1,6 +1,6 @@
 #!/bin/bash
-install {
+function installTracker {
   npm i && cd client && npm i && cd -
 }
 
-install
+installTracker
