@@ -1,5 +1,5 @@
 {
-  "name": "invoice tracker client",
+  "name": "invoice-tracker-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
