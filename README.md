@@ -14,7 +14,7 @@ $ git clone git@github.com:kojinkai/invoice-tracker.git
 Install the dependencies
 
 ```bash
-$ ./install.sh
+$ cd invoice-tracker && ./install.sh
 ```
 
 ### Running the app
