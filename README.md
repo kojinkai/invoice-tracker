@@ -27,4 +27,4 @@ This will concurrently run the local webpack dev server for the front-end applic
 
 ### Backlog
 
-See (The Trello board)[https://trello.com/b/plihpBPX/finiata] for details of tasks completed and roadmap features and ideas
+See [The Trello board](https://trello.com/b/plihpBPX/finiata) for details of tasks completed and roadmap features and ideas
