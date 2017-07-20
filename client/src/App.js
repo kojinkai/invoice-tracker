@@ -12,11 +12,6 @@ class App extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    console.log('component mounted');
-    invoiceAPI.postInvoice({foo: 'bar'});
-  }
 }
 
 export default App;
