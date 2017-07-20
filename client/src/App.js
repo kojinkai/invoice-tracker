@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import invoiceAPI from './api/invoices';
+import InvoiceList from './components/invoicelist/invoicelist';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Welcome to Invoice Tracker</h2>
-        </div>
+        <InvoiceList />
       </div>
     );
   }

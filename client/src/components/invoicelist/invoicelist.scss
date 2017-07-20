@@ -1,0 +1,15 @@
+.invoice-list {
+  &__dropbox {
+    border: 5px dashed silver;
+    border-radius: .5rem;
+    padding: 2rem;
+
+    &--is-dragging {
+      border-color: tomato; 
+    }
+  }
+
+  &__pending {
+    
+  }
+}
