@@ -1,14 +1,11 @@
 ## Invoice Tracker Demo
 
+### Prerequisites
+Built and tested using node 8.1.4 & npm 5.0.3. Earlier node versions may work but are untested.
+
 ### Installation
 
-Built and tested node 8.1.4 so install this version if you don't already have it (assumes node version manager is installed).
-
-```bash
-$ nvm install 8
-```
-
-Then clone the repo
+First clone the repo
 
 ```bash
 $ git clone git@github.com:kojinkai/invoice-tracker.git
@@ -20,7 +17,7 @@ Install the dependencies
 $ ./install.sh
 ```
 
-Running the app
+### Running the app
 
 ```bash
 $ npm start
