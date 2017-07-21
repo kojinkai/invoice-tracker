@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Invoice from '../invoice/invoice';
+import Popover from '../popover/popover';
 import './invoicelist.css';
 
 class InvoiceList extends Component {
@@ -12,8 +13,19 @@ class InvoiceList extends Component {
 
     this.state = {
       isDragging: false,
+      isEditingRecipient: false,
       invoices: []
     }
+  }
+
+  _editInvoiceByID(id) {
+    return function editInvoice(event) {
+      event.preventDefault();
+
+      this.setState({
+        isEditingRecipient: true
+      });
+    }.bind(this);
   }
 
   _handleDragEnter(event) {
@@ -46,7 +58,7 @@ class InvoiceList extends Component {
     const file = data.files;
     const id   = this.state.invoices.length;
 
-    const invoices = this.state.invoices.concat(<Invoice fileData={file} key={id} />);
+    const invoices = this.state.invoices.concat(<Invoice fileData={file} key={id} editRecipient={this._editInvoiceByID(id)}/>);
 
     this.setState({
       isDragging: false,
@@ -75,6 +87,7 @@ class InvoiceList extends Component {
             Drag your files here
           </div>
         </div>
+        <Popover isActive={this.state.isEditingRecipient} />
       </section>
     );
   }

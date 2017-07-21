@@ -1,0 +1,23 @@
+@import 'styles/colors';
+
+.popover {
+  display: none;
+
+  &--is-active {
+    background: $white;
+    border: 1px solid $lightash;
+    border-radius: 6px;
+    display: block;
+    min-width: 30rem;
+    padding: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -2,6 +2,8 @@
 @import 'styles/grid';
 
 .invoice-list {
+  position: relative;
+
   &__container {
     @include container;
   }

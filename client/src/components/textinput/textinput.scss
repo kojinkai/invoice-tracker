@@ -1,6 +1,15 @@
 @import 'styles/inputs';
 
 .textinput {
+
+  &__input-wrap {
+    &--oneline {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+  }
+
   &__input {
     @include textfield;
     display: block;
@@ -9,5 +18,10 @@
   &__label {
     display: block;
     margin-bottom: .5rem;
+
+    &--oneline {
+      margin-bottom: 0;
+      line-height: 2.875rem;
+    }
   }
 }
