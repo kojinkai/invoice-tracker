@@ -19,10 +19,15 @@
   }
 
   &__label {
-    text-transform: uppercase;
+    display: block;
+    margin-bottom: .5rem;
   }
 
   &__files {
     margin-top: 1rem;
+  }
+
+  &__file-title-legend {
+    margin-bottom: .5rem;
   }
 }
