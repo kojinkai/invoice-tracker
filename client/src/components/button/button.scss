@@ -1,0 +1,13 @@
+@import 'styles/colors';
+
+.button {
+  border-radius: 5px;
+  background: $slate;
+  color: $white;
+  font-size: 1rem;
+  padding: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

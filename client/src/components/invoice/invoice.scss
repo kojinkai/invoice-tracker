@@ -1,0 +1,33 @@
+@import 'styles/colors';
+@import 'styles/inputs';
+
+.invoice {
+  background: $white;
+  border: 1px solid $lightash;
+  margin-bottom: 1rem;
+  padding: 2rem;
+
+  &__form {
+    align-items: flex-end; 
+    display: flex;
+    justify-content: space-between;    
+  }
+
+  &__input {
+    @include textfield;
+    display: block;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+
+  &__files {
+    margin-top: 1rem;
+  }
+
+  &__file-title-legend {
+    margin-bottom: .5rem;
+  }
+}

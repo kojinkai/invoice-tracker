@@ -1,0 +1,6 @@
+@import 'styles/colors';
+
+@mixin textfield {
+  color: $slate;
+  padding: 1rem;  
+}
