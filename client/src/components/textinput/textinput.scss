@@ -1,0 +1,13 @@
+@import 'styles/inputs';
+
+.textinput {
+  &__input {
+    @include textfield;
+    display: block;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+}
