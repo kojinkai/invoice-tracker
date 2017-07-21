@@ -42,11 +42,12 @@ class InvoiceList extends Component {
     event.stopPropagation(); 
     event.preventDefault();
 
-    const data  = event.dataTransfer;
+    const data = event.dataTransfer;
     const file = data.files;
-    const id = this.state.invoices.length;
+    const id   = this.state.invoices.length;
+
     const invoices = this.state.invoices.concat(<Invoice fileData={file} key={id} />);
-    console.log(file, invoices);
+
     this.setState({
       isDragging: false,
       invoices: invoices
