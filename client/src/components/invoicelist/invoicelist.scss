@@ -1,15 +1,17 @@
+@import 'styles/colors';
+@import 'styles/grid';
+
 .invoice-list {
+  &__container {
+    @include container;
+  }
+
   &__dropbox {
-    border: 5px dashed silver;
-    border-radius: .5rem;
+    border: 5px dashed $lightash;
     padding: 2rem;
 
     &--is-dragging {
-      border-color: tomato; 
+      border-color: $softgreen; 
     }
-  }
-
-  &__pending {
-    
   }
 }

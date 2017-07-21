@@ -44,10 +44,9 @@ class InvoiceList extends Component {
 
     const data  = event.dataTransfer;
     const file = data.files;
-    console.log(file);
-    const invoices = this.state.invoices.slice();
-    invoices.push(<Invoice fileData={file} key="" />);
-
+    const id = this.state.invoices.length;
+    const invoices = this.state.invoices.concat(<Invoice fileData={file} key={id} />);
+    console.log(file, invoices);
     this.setState({
       isDragging: false,
       invoices: invoices
@@ -63,18 +62,19 @@ class InvoiceList extends Component {
     }
 
     return (
-      <div className="invoice-list">
+      <section className="invoice-list">
+        <div className="invoice-list__container">
+          <div className="invoice-list__pending">{this.state.invoices}</div>
 
-        <div className="invoice-list__pending">{this.state.invoices}</div>
-
-        <div className={classList.join(' ')}
-             onDragEnter={this._handleDragEnter}
-             onDragLeave={this._handleDragLeave}
-             onDragOver={this._handleDragOver}
-             onDrop={this._handleDrop}>
-          Drag your files here
+          <div className={classList.join(' ')}
+               onDragEnter={this._handleDragEnter}
+               onDragLeave={this._handleDragLeave}
+               onDragOver={this._handleDragOver}
+               onDrop={this._handleDrop}>
+            Drag your files here
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

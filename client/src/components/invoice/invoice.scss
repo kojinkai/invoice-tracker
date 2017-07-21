@@ -1,0 +1,28 @@
+@import 'styles/colors';
+@import 'styles/inputs';
+
+.invoice {
+  background: $white;
+  border: 1px solid $lightash;
+  margin-bottom: 1rem;
+  padding: 2rem;
+
+  &__form {
+    align-items: flex-end; 
+    display: flex;
+    justify-content: space-between;    
+  }
+
+  &__input {
+    @include textfield;
+    display: block;
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+
+  &__files {
+    margin-top: 1rem;
+  }
+}
