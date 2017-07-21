@@ -7,7 +7,9 @@ class Invoice extends Component {
   render() {
 
     const fileNames = flatMap(this.props.fileData, file => file.name)
-      .map((fileName, index) => (<div key={index} className="invoice__file-title-legend">{fileName}</div>));
+      .map((fileName, index) => (
+        <div key={index} className="invoice__file-title-legend">{fileName}</div>)
+      );
 
     return (
       <div className="invoice">
