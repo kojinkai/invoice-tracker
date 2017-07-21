@@ -4,9 +4,9 @@ import './masthead.css';
 class Masthead extends Component {
   render() {
     return (
-      <div className="masthead">
+      <header className="masthead">
         <div className="masthead__container">Invoice Tracker</div>
-      </div>
+      </header>
     )
   }
 }
