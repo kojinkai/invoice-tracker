@@ -1,4 +1,5 @@
 @import 'styles/colors';
+@import 'styles/button';
 
 .popover {
   display: none;
@@ -19,5 +20,9 @@
   &__actions {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__submit {
+    @include button;
   }
 }

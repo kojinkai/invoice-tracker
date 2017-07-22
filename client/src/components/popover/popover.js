@@ -12,19 +12,19 @@ class Popover extends Component {
     });    
 
     return (
-      <div className={popoverModifiers}>
+      <form onSubmit={this.props.onSubmit} className={popoverModifiers}>
         <div className="popover__header">{this.props.title}</div>
         <div className="popover__content">
-          <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" display="oneline" />
+          <TextInput id="invoice__input-amount" placeholder="enter name" label="name" display="oneline" />
+          <TextInput id="invoice__input-amount" placeholder="enter surname" label="surname" display="oneline" />
+          <TextInput id="invoice__input-amount" placeholder="enter address" label="address" display="oneline" />
+          <TextInput id="invoice__input-amount" placeholder="enter phone" label="phone number" display="oneline" />
         </div>
         <div className="popover__actions">
           <Button value="Cancel" />
-          <Button value="Save" />
+          <input className="popover__submit" type="submit" value="Submit" />
         </div>
-      </div>
+      </form>
     )
   }
 }
