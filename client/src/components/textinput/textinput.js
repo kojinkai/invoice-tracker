@@ -8,12 +8,10 @@ class TextInput extends Component {
 
     const isOneLine = this.props.display === 'oneline';
 
-    // @TODO factor createModifiers into one call
     const inputWrapModifiers = createModifiers('textinput__input-wrap', {
       'oneline': isOneLine
     });
     
-    // @TODO factor createModifiers into one call 
     const labelModifiers = createModifiers('textinput__label', {
       'oneline': isOneLine
     });
