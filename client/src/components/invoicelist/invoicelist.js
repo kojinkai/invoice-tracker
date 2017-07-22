@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import createModifiers      from '../../lib/createModifiers';
 import Invoice from '../invoice/invoice';
 import Popover from '../popover/popover';
+import InvoiceRecipienForm from '../invoiceform/invoiceform';
 import './invoicelist.css';
 
 class InvoiceList extends Component {
 
   constructor() {
     super();
+    this.recipientDataDefaults = {
+      name: '',
+      surname: '',
+      address: '',
+      phone: ''
+    };
+
     this._handleDragEnter = this._handleDragEnter.bind(this);
     this._handleDragLeave = this._handleDragLeave.bind(this);
     this._handleDrop      = this._handleDrop.bind(this);
-    this._cancelInvoiceRecipientEdits = this._cancelInvoiceRecipientEdits.bind(this);
+    this._handleCancelInvoiceRecipientEdits = this._handleCancelInvoiceRecipientEdits.bind(this);
 
     this.state = {
       isDragging: false,
@@ -20,11 +28,23 @@ class InvoiceList extends Component {
     }
   }
 
-  _editInvoice(invoice) {
+  _launchEditInvoicePopover(invoice) {
     this.setState({
-      isEditingRecipient: true
+      isEditingRecipient: true,
+      activeInvoice: invoice
     });
   }
+
+  saveInvoiceRecipientEdits(edits) {
+    console.log('submitting invoice recipient form: ', edits);
+  }
+
+  _handleCancelInvoiceRecipientEdits(event) {
+    event.preventDefault();
+    this.setState({
+      isEditingRecipient: false
+    });
+  }  
 
   _handleDragEnter(event) {
     event.stopPropagation();
@@ -59,7 +79,7 @@ class InvoiceList extends Component {
       .map((file, index) => {
         const invoiceObject = {};
         invoiceObject.files = [file];
-        invoiceObject.recipientData = {};
+        invoiceObject.recipientData = Object.assign({}, this.recipientDataDefaults);
         invoiceObject.id = index;
         return invoiceObject;
       });
@@ -72,18 +92,6 @@ class InvoiceList extends Component {
     });
   }
 
-  _submitInvoiceRecipientEdits(event) {
-    event.preventDefault();
-    console.log('submitting invoice recipient form');
-  }
-
-  _cancelInvoiceRecipientEdits(event) {
-    event.preventDefault();
-    this.setState({
-      isEditingRecipient: false
-    });
-  }
-
   render() {
 
     const invoiceListDropboxModifiers = createModifiers('invoice-list__dropbox', {
@@ -92,18 +100,24 @@ class InvoiceList extends Component {
 
     const invoices = this.state.invoices.map(invoice => {
 
-      const handleEdit = (event) => {
+      const handleEdit = event => {
         event.preventDefault();
-        this._editInvoice(invoice);
+        this._launchEditInvoicePopover(invoice);
       };
 
       return (<Invoice fileData={invoice.files} key={invoice.id} editRecipient={handleEdit}/>);
 
     });
 
+    const recipientData = this.state.isEditingRecipient ? 
+      this.state.activeInvoice.recipientData 
+        : 
+      Object.assign({}, this.recipientDataDefaults);
+
     return (
       <section className="invoice-list">
         <div className="invoice-list__container">
+
           <div className="invoice-list__pending">{invoices}</div>
 
           <div className={invoiceListDropboxModifiers}
@@ -114,7 +128,15 @@ class InvoiceList extends Component {
             Drag your files here
           </div>
         </div>
-        <Popover isActive={this.state.isEditingRecipient} onCancel={this._cancelInvoiceRecipientEdits} onSubmit={this._submitInvoiceRecipientEdits}/>
+
+        <Popover isActive={this.state.isEditingRecipient} 
+                 onCancel={this._handleCancelInvoiceRecipientEdits}>
+          <InvoiceRecipienForm 
+            formData={recipientData}
+            onSubmit={this.saveInvoiceRecipientEdits} 
+            onCancel={this._handleCancelInvoiceRecipientEdits} />
+        </Popover>
+
       </section>
     );
   }
