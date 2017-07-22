@@ -21,8 +21,4 @@
     display: flex;
     justify-content: space-between;
   }
-
-  &__submit {
-    @include button;
-  }
 }

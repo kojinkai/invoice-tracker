@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
 import createModifiers      from '../../lib/createModifiers';
-import TextInput            from '../textinput/textinput';
 import Button               from '../button/button';
 import './popover.css';
 
 class Popover extends Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.formData;
+  }
+
   render() {
 
     const popoverModifiers = createModifiers('popover', {
       'is-active': this.props.isActive
-    });    
+    });
 
     return (
-      <form onSubmit={this.props.onSubmit} className={popoverModifiers}>
+      <div className={popoverModifiers}>
         <div className="popover__header">{this.props.title}</div>
         <div className="popover__content">
-          <TextInput id="invoice__input-amount" placeholder="enter name" label="name" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter surname" label="surname" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter address" label="address" display="oneline" />
-          <TextInput id="invoice__input-amount" placeholder="enter phone" label="phone number" display="oneline" />
+          {this.props.children}
         </div>
         <div className="popover__actions">
-          <Button value="Cancel" onClick={this.props.onCancel}/>
-          <input className="popover__submit" type="submit" value="Submit" />
+          <Button value="Cancel" onClick={this.props.onCancel} />
+          <Button value="Submit" onClick={this.props.onSubmit} />
         </div>
-      </form>
+      </div>
     )
   }
 }
