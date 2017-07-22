@@ -3,6 +3,7 @@ import createModifiers from '../../lib/createModifiers';
 import './textinput.css';
 
 class TextInput extends Component {
+
   render() {
 
     const isOneLine = this.props.display === 'oneline';
@@ -19,8 +20,16 @@ class TextInput extends Component {
 
     return (
       <div className={inputWrapModifiers}>
-        <label htmlFor="{this.props.id}" className={labelModifiers}>{this.props.label}</label>
-        <input className="textinput__input" type="text" placeholder={this.props.placeholder} id="{this.props.id}" />
+        <label htmlFor={this.props.id} className={labelModifiers}>{this.props.label}</label>
+        <input 
+          name={this.props.name} 
+          value={this.props.value}
+          onChange={this.props.onChange} 
+          className="textinput__input" 
+          type="text" 
+          placeholder={this.props.placeholder} 
+          id="{this.props.id}"
+        />
       </div>
     );
   }
