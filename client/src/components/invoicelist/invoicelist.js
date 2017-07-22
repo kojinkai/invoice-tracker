@@ -40,10 +40,7 @@ class InvoiceList extends Component {
   saveInvoiceRecipientEdits(edits) {
 
     // @TODO
-    // side effects - this.state.activeInvoice
-    // pass active invoice down to form and pass in here?
-
-    const updatedInvoices = this.state.invoices.map((invoice) => {
+    const updatedInvoices = this.state.invoices.map(invoice => {
       if (invoice.id === this.state.activeInvoice.id) {
         invoice.recipientData = edits;
         // @TODO - check the edits object and show only non-empty fields

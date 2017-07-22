@@ -7,7 +7,7 @@ class InvoiceRecipientForm extends Component {
   
   constructor(props) {
     super(props);
-    this.state = this.props.formData;
+    this.state = {};
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit      = this.handleSubmit.bind(this);
@@ -30,7 +30,6 @@ class InvoiceRecipientForm extends Component {
   }
 
   render() {
-
     return (
       <form className="invoice-form" onSubmit={this.handleSubmit}>
         <TextInput onChange={this.handleInputChange} value={this.state.name} id="invoice__input-name" placeholder="enter name" label="name" name="name" display="oneline" />
