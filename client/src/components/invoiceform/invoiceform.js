@@ -26,9 +26,11 @@ class InvoiceRecipientForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(this.state);
+    this.setState(this.props.formData);
   }
 
   render() {
+
     return (
       <form className="invoice-form" onSubmit={this.handleSubmit}>
         <TextInput onChange={this.handleInputChange} value={this.state.name} id="invoice__input-name" placeholder="enter name" label="name" name="name" display="oneline" />

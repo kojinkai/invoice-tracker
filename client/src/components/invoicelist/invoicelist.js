@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import createModifiers      from '../../lib/createModifiers';
 import Invoice from '../invoice/invoice';
 import Popover from '../popover/popover';
-import InvoiceRecipienForm from '../invoiceform/invoiceform';
+import InvoiceForm from '../invoiceform/invoiceform';
 import './invoicelist.css';
 
 class InvoiceList extends Component {
@@ -19,12 +19,14 @@ class InvoiceList extends Component {
     this._handleDragEnter = this._handleDragEnter.bind(this);
     this._handleDragLeave = this._handleDragLeave.bind(this);
     this._handleDrop      = this._handleDrop.bind(this);
+    this.saveInvoiceRecipientEdits = this.saveInvoiceRecipientEdits.bind(this);
     this._handleCancelInvoiceRecipientEdits = this._handleCancelInvoiceRecipientEdits.bind(this);
 
     this.state = {
       isDragging: false,
       isEditingRecipient: false,
-      invoices: []
+      invoices: [],
+      activeInvoice: {}
     }
   }
 
@@ -36,6 +38,24 @@ class InvoiceList extends Component {
   }
 
   saveInvoiceRecipientEdits(edits) {
+
+    // @TODO
+    // side effects - this.state.activeInvoice
+    // pass active invoice down to form and pass in here?
+
+    const updatedInvoices = this.state.invoices.map((invoice) => {
+      if (invoice.id === this.state.activeInvoice.id) {
+        invoice.recipientData = edits;
+        // @TODO - check the edits object and show only non-empty fields
+        invoice.hasRecipientData = true;
+      }
+      return invoice;
+    });
+
+    this.setState({
+      isEditingRecipient: false,
+      invoices: updatedInvoices
+    });
     console.log('submitting invoice recipient form: ', edits);
   }
 
@@ -80,7 +100,7 @@ class InvoiceList extends Component {
         const invoiceObject = {};
         invoiceObject.files = [file];
         invoiceObject.recipientData = Object.assign({}, this.recipientDataDefaults);
-        invoiceObject.id = index;
+        invoiceObject.id = this.state.invoices.length + index;
         return invoiceObject;
       });
 
@@ -90,6 +110,7 @@ class InvoiceList extends Component {
       isDragging: false,
       invoices: invoices
     });
+
   }
 
   render() {
@@ -105,7 +126,7 @@ class InvoiceList extends Component {
         this._launchEditInvoicePopover(invoice);
       };
 
-      return (<Invoice fileData={invoice.files} key={invoice.id} editRecipient={handleEdit}/>);
+      return (<Invoice invoiceData={invoice} key={invoice.id} editRecipient={handleEdit}/>);
 
     });
 
@@ -131,7 +152,7 @@ class InvoiceList extends Component {
 
         <Popover isActive={this.state.isEditingRecipient} 
                  onCancel={this._handleCancelInvoiceRecipientEdits}>
-          <InvoiceRecipienForm 
+          <InvoiceForm 
             formData={recipientData}
             onSubmit={this.saveInvoiceRecipientEdits} 
             onCancel={this._handleCancelInvoiceRecipientEdits} />
