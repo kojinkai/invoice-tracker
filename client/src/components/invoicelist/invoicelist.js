@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import createModifiers      from '../../lib/createModifiers';
 import Invoice from '../invoice/invoice';
 import Popover from '../popover/popover';
 import './invoicelist.css';
@@ -66,20 +67,23 @@ class InvoiceList extends Component {
     });
   }
 
+  _onSubmitInvoiceRecipient(event) {
+    event.preventDefault();
+    console.log('submitting invoice recipient form');
+  }
+
   render() {
 
-    const classList = ['invoice-list__dropbox'];
-
-    if (this.state.isDragging) {
-      classList.push('invoice-list__dropbox--is-dragging');
-    }
+    const invoiceListDropboxModifiers = createModifiers('invoice-list__dropbox', {
+      'is-dragging': this.state.isDragging
+    });     
 
     return (
       <section className="invoice-list">
         <div className="invoice-list__container">
           <div className="invoice-list__pending">{this.state.invoices}</div>
 
-          <div className={classList.join(' ')}
+          <div className={invoiceListDropboxModifiers}
                onDragEnter={this._handleDragEnter}
                onDragLeave={this._handleDragLeave}
                onDragOver={this._handleDragOver}
@@ -87,7 +91,7 @@ class InvoiceList extends Component {
             Drag your files here
           </div>
         </div>
-        <Popover isActive={this.state.isEditingRecipient} />
+        <Popover isActive={this.state.isEditingRecipient} onSubmit={this._onSubmitInvoiceRecipient}/>
       </section>
     );
   }
