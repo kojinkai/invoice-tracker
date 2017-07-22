@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import Button from '../button/button';
 import TextInput from '../textinput/textinput';
+import createModifiers from '../../lib/createModifiers';
 import './invoice.css';
 
 class Invoice extends Component {
 
   render() {
 
-    const fileNames = this.props.fileData.map((file, index) => {
+    const fileNames = this.props.invoiceData.files.map((file, index) => {
       return (<div key={index} className="invoice__file-title-legend">{file.name}</div>);
+    });
+
+    const recipientData = Object.keys(this.props.invoiceData.recipientData).map((key, index) => {
+      return (<div key={index} className="invoice__recipient-data">{key} : {this.props.invoiceData.recipientData[key]}</div>);
+    });
+
+    const invoiceRecipientModifiers = createModifiers('invoice__recipient', {
+      'is-populated': this.props.invoiceData.hasRecipientData
     });
 
     return (
@@ -20,6 +29,7 @@ class Invoice extends Component {
         </form>
 
         <div className="invoice__files">{fileNames}</div>
+        <div className={invoiceRecipientModifiers}>{recipientData}</div>
       </div>
     );
   }

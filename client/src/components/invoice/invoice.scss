@@ -19,4 +19,12 @@
   &__file-title-legend {
     margin-bottom: .5rem;
   }
+
+  &__recipient {
+    display: none;
+
+    &--is-populated {
+      display: block;
+    }
+  }
 }
