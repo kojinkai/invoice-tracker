@@ -21,7 +21,7 @@ class Popover extends Component {
           <TextInput id="invoice__input-amount" placeholder="enter phone" label="phone number" display="oneline" />
         </div>
         <div className="popover__actions">
-          <Button value="Cancel" />
+          <Button value="Cancel" onClick={this.props.onCancel}/>
           <input className="popover__submit" type="submit" value="Submit" />
         </div>
       </form>

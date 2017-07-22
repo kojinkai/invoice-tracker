@@ -1,4 +1,3 @@
-import flatMap from 'lodash.flatmap';
 import React, { Component } from 'react';
 import Button from '../button/button';
 import TextInput from '../textinput/textinput';
@@ -8,10 +7,9 @@ class Invoice extends Component {
 
   render() {
 
-    const fileNames = flatMap(this.props.fileData, file => file.name)
-      .map((fileName, index) => (
-        <div key={index} className="invoice__file-title-legend">{fileName}</div>)
-      );
+    const fileNames = this.props.fileData.map((file, index) => {
+      return (<div key={index} className="invoice__file-title-legend">{file.name}</div>);
+    });
 
     return (
       <div className="invoice">
