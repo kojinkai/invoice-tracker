@@ -17,14 +17,12 @@ const handleDragOver = event => {
 
 const handleDragEnter = event => {
   event.stopPropagation();
-  event.preventDefault();    
-  console.log('handling dragEnter');
+  event.preventDefault();
 };
 
 const handleDragLeave = event => {
   event.stopPropagation();
   event.preventDefault();    
-  console.log('handling dragLeave');
 };
 
 let AddInvoice = ({ dispatch }) => {
@@ -44,7 +42,7 @@ let AddInvoice = ({ dispatch }) => {
 
           const newInvoiceUploads = Object.keys(files)
             .map(key => files[key])
-            .map((file, index) => {
+            .map(file => {
               const invoiceObject = {};
               invoiceObject.files = [file];
               invoiceObject.recipientData = Object.assign({}, recipientDataDefaults);

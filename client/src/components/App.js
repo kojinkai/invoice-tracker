@@ -1,13 +1,13 @@
 import React from 'react'
-import Footer from './Footer'
 import AddInvoice from '../containers/AddInvoice'
-import CurrentInvoiceList from '../containers/currentInvoiceList'
+import CurrentInvoiceList from '../containers/CurrentInvoiceList'
+import ControlPopover from '../containers/ControlPopover'
 
 const App = () => (
   <div>
     <AddInvoice />
     <CurrentInvoiceList />
-    <Footer />
+    <ControlPopover />
   </div>
 )
 

@@ -8,6 +8,9 @@ const invoices = (state = [], action) => {
 
       return updatedState;
 
+    case 'UPDATE_INVOICE_RECIPIENT_DATA':
+      return state;
+
     default:
       return state
   }

@@ -1,8 +1,20 @@
-const popover = (state = [], action) => {
+const defaults = {
+  isActive: false
+}
+
+const popover = (state = defaults, action) => {
   switch (action.type) {
     case 'SHOW_POPOVER':
-      console.log('handling popover toggle: ', state, action);
-      return state.concat(action);
+      const popoverState = {}
+      popoverState.isActive = true
+      popoverState.data = action.invoice
+      return popoverState
+
+    case 'CLOSE_POPOVER_WITHOUT_SAVING':
+      const inactiveState = {}
+      inactiveState.isActive = false
+      inactiveState.data = {}
+      return inactiveState;
     default:
       return state
   }

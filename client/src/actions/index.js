@@ -5,12 +5,16 @@ export const addInvoice = invoice => ({
   invoiceData: invoice
 })
 
-export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
+export const saveInvoiceRecipientData = invoice => ({
+  type: 'UPDATE_INVOICE_RECIPIENT_DATA',
+  invoiceData: invoice
 })
 
 export const showInvoiceEditPopover = invoice => ({
   type: 'SHOW_POPOVER',
   invoice
+})
+
+export const closePopoverWithoutSave = () => ({
+  type: 'CLOSE_POPOVER_WITHOUT_SAVING'
 })
