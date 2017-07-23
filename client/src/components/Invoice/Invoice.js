@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TextInput from '../TextInput/TextInput';
+import Button from '../Button/Button';
+import './invoice.css'
 
 const Invoice = ({ invoice, onClick }) => {
 
@@ -10,7 +13,9 @@ const Invoice = ({ invoice, onClick }) => {
   return (
     <div className="invoice">
       <form className="invoice__form">
-        another invoice
+        <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" />
+        <TextInput id="invoice__input-target" placeholder="enter payment target" label="Payment Target" />
+        <Button value="Add recipient" onClick={onClick} />
       </form>
 
       <div className="invoice__files">{fileNames}</div>

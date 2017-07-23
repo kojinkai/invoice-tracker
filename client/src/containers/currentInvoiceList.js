@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
+import { showInvoiceEditPopover } from '../actions'
 import InvoiceList from '../components/InvoiceList/InvoiceList'
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  onInvoiceClick: toggleTodo
+  handleEditInvoice: showInvoiceEditPopover
 }
 
 const CurrentInvoiceList = connect(

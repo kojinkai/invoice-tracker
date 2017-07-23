@@ -1,0 +1,6 @@
+@import 'styles/colors';
+@import 'styles/button';
+
+.button {
+  @include button;
+}
