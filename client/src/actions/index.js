@@ -5,13 +5,14 @@ export const addInvoice = invoice => ({
   invoiceData: invoice
 })
 
-export const updateInvoiceRecipientData = () => ({
-  type: 'UPDATE_INVOICE_RECIPIENT_DATA'
+export const updateInvoiceRecipientData = recipientData => ({
+  type: 'UPDATE_INVOICE_RECIPIENT_DATA',
+  recipientData
 })
 
-export const saveInvoiceRecipientData = invoice => ({
+export const saveInvoiceRecipientData = recipientData => ({
   type: 'SAVE_INVOICE_RECIPIENT_DATA',
-  invoiceData: invoice
+  recipientData
 })
 
 export const showInvoiceEditPopover = invoice => ({

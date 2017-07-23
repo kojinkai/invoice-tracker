@@ -34,19 +34,19 @@ let AddInvoice = ({ dispatch }) => {
          onDragLeave={handleDragLeave} 
          onDragOver={handleDragOver} 
          onDrop={event => {
-          event.stopPropagation(); 
-          event.preventDefault();
+          event.stopPropagation()
+          event.preventDefault()
 
-          const data  = event.dataTransfer;
-          const files = data.files;
+          const data  = event.dataTransfer
+          const files = data.files
 
           const newInvoiceUploads = Object.keys(files)
             .map(key => files[key])
             .map(file => {
-              const invoiceObject = {};
-              invoiceObject.files = [file];
-              invoiceObject.recipientData = Object.assign({}, recipientDataDefaults);
-              return invoiceObject;
+              const invoiceObject = {}
+              invoiceObject.files = [file]
+              invoiceObject.recipientData = Object.assign({}, recipientDataDefaults)
+              return invoiceObject
             });
 
           newInvoiceUploads.forEach(invoice => dispatch(addInvoice(invoice)))

@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(closePopoverWithoutSave())
   },
 
-  handleInputChange: () => {
-    dispatch(updateInvoiceRecipientData())
+  handleInputChange: updates => {
+    dispatch(updateInvoiceRecipientData(updates))
   },
 
   handleSubmit: invoice => {

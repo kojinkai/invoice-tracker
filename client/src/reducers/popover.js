@@ -1,5 +1,15 @@
 const defaults = {
-  isActive: false
+  isActive: false,
+  data: {
+    invoiceData: {
+      recipientData: {
+        name: '',
+        surname: '',
+        address: '',
+        phone: ''
+      }
+    }
+  }
 }
 
 const popover = (state = defaults, action) => {
@@ -8,13 +18,17 @@ const popover = (state = defaults, action) => {
       const popoverState = {}
       popoverState.isActive = true
       popoverState.data = action.invoice
-      return popoverState
+      return popoverState      
 
     case 'CLOSE_POPOVER_WITHOUT_SAVING':
       const inactiveState = {}
       inactiveState.isActive = false
       inactiveState.data = {}
       return inactiveState;
+
+    case 'UPDATE_INVOICE_RECIPIENT_DATA':
+      return state;
+
     default:
       return state
   }
