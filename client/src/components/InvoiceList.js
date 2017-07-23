@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Todo from './Todo'
+import Invoice from './Invoice'
 
 const InvoiceList = ({ invoices, onInvoiceClick }) => (
   <div>
     {invoices.map(invoice =>
-      <Todo
+      <Invoice
         key={invoice.id}
         invoice={invoice.invoiceData}
         onClick={() => onInvoiceClick(invoice.id)}

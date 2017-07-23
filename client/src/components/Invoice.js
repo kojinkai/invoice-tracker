@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({ invoice, onClick }) => {
+const Invoice = ({ invoice, onClick }) => {
 
   const fileNames = invoice.files.map((file, index) => {
     return (<div key={index} className="invoice__file-title-legend">{file.name}</div>);
@@ -18,9 +18,9 @@ const Todo = ({ invoice, onClick }) => {
   )
 }
 
-Todo.propTypes = {
+Invoice.propTypes = {
   onClick: PropTypes.func.isRequired,
   invoice: PropTypes.object
 }
 
-export default Todo
+export default Invoice
