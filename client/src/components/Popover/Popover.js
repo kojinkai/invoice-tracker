@@ -20,6 +20,7 @@ const Popover = ({ handleCancel, isActive }) => {
     </div>
   )
 }
+
 Popover.propTypes = {
   handleCancel: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired
