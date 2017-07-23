@@ -21,10 +21,7 @@ const popover = (state = defaults, action) => {
       return popoverState      
 
     case 'CLOSE_POPOVER_WITHOUT_SAVING':
-      const inactiveState = {}
-      inactiveState.isActive = false
-      inactiveState.data = {}
-      return inactiveState;
+      return defaults;
 
     case 'UPDATE_INVOICE_RECIPIENT_DATA':
       return state;
