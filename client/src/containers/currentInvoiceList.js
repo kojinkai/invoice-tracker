@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
-import InvoiceList from '../components/InvoiceList'
+import InvoiceList from '../components/InvoiceList/InvoiceList'
 
 const mapStateToProps = (state) => {
  console.log('invoices in CurrentInvoiceList container: ', state.invoices);
