@@ -5,8 +5,12 @@ export const addInvoice = invoice => ({
   invoiceData: invoice
 })
 
+export const updateInvoiceRecipientData = () => ({
+  type: 'UPDATE_INVOICE_RECIPIENT_DATA'
+})
+
 export const saveInvoiceRecipientData = invoice => ({
-  type: 'UPDATE_INVOICE_RECIPIENT_DATA',
+  type: 'SAVE_INVOICE_RECIPIENT_DATA',
   invoiceData: invoice
 })
 
