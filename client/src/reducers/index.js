@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
+import invoices from './invoices'
 import visibilityFilter from './visibilityFilter'
 
-const todoApp = combineReducers({
-  todos,
+const invoiceTracker = combineReducers({
+  invoices,
   visibilityFilter
 })
 
-export default todoApp
+export default invoiceTracker

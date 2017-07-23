@@ -1,9 +1,12 @@
 let nextInvoiceId = 0
-export const addInvoice = invoice => ({
-  type: 'ADD_INVOICE',
-  id: nextInvoiceId++,
-  payload: {invoice}
-})
+export const addInvoice = invoice => {
+ console.log('actions addInvoice: ', invoice);
+ return {
+    type: 'ADD_INVOICE',
+    id: nextInvoiceId++,
+    invoiceData: invoice
+  }
+}
 
 export const setVisibilityFilter = (filter) => ({
   type: 'SET_VISIBILITY_FILTER',

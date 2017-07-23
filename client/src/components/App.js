@@ -1,12 +1,12 @@
 import React from 'react'
 import Footer from './Footer'
 import AddInvoice from '../containers/AddInvoice'
-import InvoiceList from '../containers/InvoiceList'
+import CurrentInvoiceList from '../containers/currentInvoiceList'
 
 const App = () => (
   <div>
     <AddInvoice />
-    <InvoiceList />
+    <CurrentInvoiceList />
     <Footer />
   </div>
 )

@@ -2,6 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addInvoice } from '../actions'
 
+const recipientDataDefaults = {
+  name: '',
+  surname: '',
+  address: '',
+  phone: ''
+};
+
 const handleDragOver = event => {
   event.stopPropagation();
   event.preventDefault();
@@ -24,31 +31,30 @@ let AddInvoice = ({ dispatch }) => {
 
   const styles = {'minHeight': '200px', 'background': 'tomato'}
   return (
-    <div>
-      <div style={styles} onDragEnter={handleDragEnter} 
-           onDragLeave={handleDragLeave} 
-           onDragOver={handleDragOver} 
-           onDrop={event => {
-            event.stopPropagation(); 
-            event.preventDefault();
+    <div style={styles}
+         onDragEnter={handleDragEnter} 
+         onDragLeave={handleDragLeave} 
+         onDragOver={handleDragOver} 
+         onDrop={event => {
+          event.stopPropagation(); 
+          event.preventDefault();
 
-            const data  = event.dataTransfer;
-            const files = data.files;
+          const data  = event.dataTransfer;
+          const files = data.files;
 
-            const invoiceObject = {};
-            invoiceObject.files = files;
-            invoiceObject.recipientData = {
-              name: '',
-              surname: '',
-              address: '',
-              phone: ''
-            };
+          const newInvoiceUploads = Object.keys(files)
+            .map(key => files[key])
+            .map((file, index) => {
+              const invoiceObject = {};
+              invoiceObject.files = [file];
+              invoiceObject.recipientData = Object.assign({}, recipientDataDefaults);
+              return invoiceObject;
+            });
 
-            dispatch(addInvoice(invoiceObject));
+          newInvoiceUploads.forEach(invoice => dispatch(addInvoice(invoice)))
 
-      }}>
-        Drag to upload an invoice
-      </div>
+    }}>
+      Drag to upload an invoice
     </div>
   )
 }
