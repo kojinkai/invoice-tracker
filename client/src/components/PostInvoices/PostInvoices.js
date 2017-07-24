@@ -14,7 +14,6 @@ const PostInvoices = ({ invoices, handlePostInvoices }) => {
     <div className="post-invoices">
       <div className="post-invoices__container">
         <Button handleClick={event => {
-            console.log('handling button click')
             event.preventDefault()
             handlePostInvoices(validInvoicesForSubmission)
         }}

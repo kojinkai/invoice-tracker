@@ -19,7 +19,7 @@ const Invoice = ({ invoice, handleClick }) => {
     })  
     return (<div key={index} className={recipientDataModifiers}>{key} : {invoiceData.recipientData[key]}</div>)
   });
-  console.log('invoice: ', invoice)
+
   const invoiceModifiers = createModifiers('invoice', {
     'is-valid': invoice.isValidForSubmission
   })
