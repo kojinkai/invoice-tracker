@@ -5,6 +5,11 @@ export const addInvoice = invoice => ({
   invoiceData: invoice
 })
 
+export const setActiveInvoice = invoice => ({
+  type: 'SET_ACTIVE_INVOICE',
+  invoice
+})
+
 export const updateInvoiceRecipientData = recipientData => ({
   type: 'UPDATE_INVOICE_RECIPIENT_DATA',
   recipientData
@@ -15,11 +20,10 @@ export const saveInvoiceRecipientData = recipientData => ({
   recipientData
 })
 
-export const showInvoiceEditPopover = invoice => ({
-  type: 'SHOW_POPOVER',
-  invoice
+export const showPopover = () => ({
+  type: 'SHOW_POPOVER'
 })
 
-export const closePopoverWithoutSave = () => ({
-  type: 'CLOSE_POPOVER_WITHOUT_SAVING'
+export const closePopover = () => ({
+  type: 'CLOSE_POPOVER'
 })

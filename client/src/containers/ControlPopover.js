@@ -1,23 +1,19 @@
 import { connect } from 'react-redux'
-import { closePopoverWithoutSave, updateInvoiceRecipientData, saveInvoiceRecipientData } from '../actions'
+import { closePopover, updateInvoiceRecipientData, saveInvoiceRecipientData } from '../actions'
 import Popover from '../components/Popover/Popover'
 
 const mapStateToProps = state => ({
-  isActive: state.popover.isActive,
-  data: state.popover.data
+  isActive: state.popover.isActive
 })
 
 const mapDispatchToProps = dispatch => ({
   handleCancel: () => {
-    dispatch(closePopoverWithoutSave())
+    dispatch(closePopover())
   },
 
-  handleInputChange: updates => {
-    dispatch(updateInvoiceRecipientData(updates))
-  },
-
-  handleSubmit: invoice => {
-    dispatch(saveInvoiceRecipientData(invoice))
+  handleSubmit: recipientData => {
+    dispatch(saveInvoiceRecipientData(recipientData))
+    dispatch(closePopover())
   }
 })
 

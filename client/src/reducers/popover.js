@@ -1,30 +1,18 @@
 const defaults = {
-  isActive: false,
-  data: {
-    invoiceData: {
-      recipientData: {
-        name: '',
-        surname: '',
-        address: '',
-        phone: ''
-      }
-    }
-  }
+  isActive: false
 }
 
 const popover = (state = defaults, action) => {
   switch (action.type) {
     case 'SHOW_POPOVER':
-      const popoverState = {}
-      popoverState.isActive = true
-      popoverState.data = action.invoice
-      return popoverState      
+      const isShowing = {}
+      isShowing.isActive = true
+      return isShowing      
 
-    case 'CLOSE_POPOVER_WITHOUT_SAVING':
-      return defaults;
-
-    case 'UPDATE_INVOICE_RECIPIENT_DATA':
-      return state;
+    case 'CLOSE_POPOVER':
+      const isHiding = {}
+      isHiding.isActive = false    
+      return isHiding;
 
     default:
       return state
