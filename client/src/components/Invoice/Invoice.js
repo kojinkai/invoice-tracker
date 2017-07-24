@@ -4,7 +4,7 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import './invoice.css'
 
-const Invoice = ({ invoice, onClick }) => {
+const Invoice = ({ invoice, handleClick }) => {
 
   const fileNames = invoice.files.map((file, index) => {
     return (<div key={index} className="invoice__file-title-legend">{file.name}</div>)
@@ -21,7 +21,7 @@ const Invoice = ({ invoice, onClick }) => {
       <form className="invoice__form">
         <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" />
         <TextInput id="invoice__input-target" placeholder="enter payment target" label="Payment Target" />
-        <Button value="Add recipient" onClick={onClick} />
+        <Button value="Add recipient" onClick={handleClick} />
       </form>
 
       <div className="invoice__files">{fileNames}</div>
@@ -31,7 +31,7 @@ const Invoice = ({ invoice, onClick }) => {
 }
 
 Invoice.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
   invoice: PropTypes.object
 }
 

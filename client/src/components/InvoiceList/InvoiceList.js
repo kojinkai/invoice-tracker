@@ -10,7 +10,7 @@ const InvoiceList = ({ invoices, handleEditInvoice }) => {
           <Invoice
             key={invoice.id}
             invoice={invoice.invoiceData}
-            onClick={event => {
+            handleClick={event => {
               event.preventDefault()
               handleEditInvoice(invoice)
             }}
