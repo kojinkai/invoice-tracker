@@ -16,6 +16,12 @@ function postInvoices(state = defaults, action) {
         response: '',
         lastUpdated: action.receivedAt
       })
+    case 'POST_INVOICES_FAIL':
+      return Object.assign({}, state, {
+        isFetching: false,
+        response: '',
+        lastUpdated: action.receivedAt
+      })      
     default:
       return state
   }
