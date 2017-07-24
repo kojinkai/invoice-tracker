@@ -5,7 +5,7 @@ import EditForm from '../EditForm/EditForm'
 import './Popover.css';
 
 const Popover = ({ handleCancel, handleSubmit, isActive, initialValues }) => {
-  console.log('popover initial state: ', initialValues)
+
   const popoverModifiers = createModifiers('popover', {
     'is-active': isActive
   })

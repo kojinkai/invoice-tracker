@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   const activeInvoiceRecipientData = !isUndefined(activeInvoiceData)
     ? activeInvoiceData.invoiceData.recipientData 
     : {}
-  console.log('popver container intiial value: ', activeInvoiceRecipientData);
+
   return {
     isActive: state.popover.isActive,
     initialValues: activeInvoiceRecipientData

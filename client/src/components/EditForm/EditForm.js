@@ -42,7 +42,8 @@ EditForm.propTypes = {
 }
 
 EditForm = reduxForm({
-  form: 'recipientData'
+  form: 'recipientData',
+  enableReinitialize: true
 })(EditForm)
 
 export default EditForm;
