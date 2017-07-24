@@ -1,5 +1,4 @@
 @import 'styles/colors';
-@import 'styles/inputs';
 
 .invoice {
   background: $white;
@@ -13,21 +12,19 @@
     justify-content: space-between;    
   }
 
-  &__input {
-    @include textfield;
-    display: block;
-  }
-
-  &__label {
-    display: block;
-    margin-bottom: .5rem;
-  }
-
   &__files {
     margin-top: 1rem;
   }
 
   &__file-title-legend {
     margin-bottom: .5rem;
+  }
+
+  &__recipient-datum {
+    display: none;
+
+    &--is-populated {
+      display: block;
+    }
   }
 }
