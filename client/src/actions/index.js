@@ -10,11 +10,6 @@ export const setActiveInvoice = invoice => ({
   invoice
 })
 
-export const updateInvoiceRecipientData = recipientData => ({
-  type: 'UPDATE_INVOICE_RECIPIENT_DATA',
-  recipientData
-})
-
 export const saveInvoiceRecipientData = recipientData => ({
   type: 'SAVE_INVOICE_RECIPIENT_DATA',
   recipientData

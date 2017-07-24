@@ -7,7 +7,13 @@ import './invoice.css'
 const Invoice = ({ invoice, onClick }) => {
 
   const fileNames = invoice.files.map((file, index) => {
-    return (<div key={index} className="invoice__file-title-legend">{file.name}</div>);
+    return (<div key={index} className="invoice__file-title-legend">{file.name}</div>)
+  });
+
+  const recipientData = Object.keys(invoice.recipientData).map((key, index) => {
+    if (invoice.recipientData[key] !== '') {
+      return (<div key={index} className="invoice__recipient-data">{key} : {invoice.recipientData[key]}</div>)
+    }
   });
 
   return (
@@ -19,6 +25,7 @@ const Invoice = ({ invoice, onClick }) => {
       </form>
 
       <div className="invoice__files">{fileNames}</div>
+      <div className='invoice__recipient'>{recipientData}</div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { closePopover, updateInvoiceRecipientData, saveInvoiceRecipientData } from '../actions'
+import { closePopover, saveInvoiceRecipientData } from '../actions'
 import Popover from '../components/Popover/Popover'
 
 const mapStateToProps = state => ({
