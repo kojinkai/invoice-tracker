@@ -15,15 +15,5 @@
     left: 50%;
     top: 1rem;
     transform: translateX(-50%);
-  }
-
-  &__actions {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__submit-button {
-    @include button;
-    order: 2;
-  }  
+  } 
 }

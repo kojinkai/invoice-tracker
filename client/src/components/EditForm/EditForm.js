@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import Button from '../Button/Button'
 import './EditForm.css'
 
 let EditForm = props => {
@@ -18,7 +19,9 @@ let EditForm = props => {
         <label className="editform__label editform__label--oneline" htmlFor="address">Address</label>
         <Field name="address" component="input" type="text" />
       </div>
-      <button type="submit">Submit</button>
+      <div className="editform__actions">
+        <Button type="submit" value="submit" />
+      </div>
     </form>
   )
 }
