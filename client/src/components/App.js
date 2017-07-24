@@ -3,6 +3,7 @@ import Masthead from '../components/Masthead/Masthead'
 import AddInvoice from '../containers/AddInvoice'
 import CurrentInvoiceList from '../containers/CurrentInvoiceList'
 import ControlPopover from '../containers/ControlPopover'
+import PostInvoicesPanel from '../containers/PostInvoicesPanel'
 
 const App = () => (
   <div>
@@ -10,6 +11,7 @@ const App = () => (
     <AddInvoice />
     <CurrentInvoiceList />
     <ControlPopover />
+    <PostInvoicesPanel />
   </div>
 )
 
