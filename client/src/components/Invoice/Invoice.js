@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TextInput from '../TextInput/TextInput';
+import createModifiers from '../../lib/createModifiers';
 import Button from '../Button/Button';
 import './invoice.css'
 
@@ -11,11 +12,12 @@ const Invoice = ({ invoice, handleClick }) => {
   });
 
   const recipientData = Object.keys(invoice.recipientData).map((key, index) => {
-    if (invoice.recipientData[key] !== '') {
-      return (<div key={index} className="invoice__recipient-data">{key} : {invoice.recipientData[key]}</div>)
-    } else {
-      return (<div key={index}></div>)
-    }
+    
+    const recipientDataModifiers = createModifiers('invoice__recipient-datum', {
+      'is-populated': invoice.recipientData[key] !== ''
+    })
+
+    return (<div key={index} className={recipientDataModifiers}>{key} : {invoice.recipientData[key]}</div>)
   });
 
   return (

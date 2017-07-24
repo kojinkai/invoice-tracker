@@ -9,8 +9,8 @@ let EditForm = ({ handleSubmit, handleCancel, initialValues }) => {
   return (
     <form onSubmit={ handleSubmit }>
       <div className="editform__input-wrap editform__input-wrap--oneline">
-        <label className="editform__label editform__label--oneline" htmlFor="firstname">Name</label>
-        <Field name="firstname" component="input" type="text" placeholder="first name" />
+        <label className="editform__label editform__label--oneline" htmlFor="name">Name</label>
+        <Field name="name" component="input" type="text" placeholder="first name" />
       </div>
       <div className="editform__input-wrap editform__input-wrap--oneline">
         <label className="editform__label editform__label--oneline" htmlFor="surname">Surname</label>

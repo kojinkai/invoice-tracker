@@ -20,8 +20,8 @@
     margin-bottom: .5rem;
   }
 
-  &__recipient {
-    display: block;
+  &__recipient-datum {
+    display: none;
 
     &--is-populated {
       display: block;
