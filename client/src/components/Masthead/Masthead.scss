@@ -1,0 +1,13 @@
+@import 'styles/colors';
+@import 'styles/grid';
+
+.masthead {
+  background: $royal;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+
+  &__container {
+    @include container;
+    color: $white;
+  }
+}

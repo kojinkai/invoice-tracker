@@ -1,61 +1,62 @@
-import React from 'react'
 import { connect } from 'react-redux'
-import { addInvoice } from '../actions'
+import { addInvoice, setDragActive, setDragInactive } from '../actions'
+import Dropbox from '../components/Dropbox/Dropbox'
 
 const recipientDataDefaults = {
   name: '',
   surname: '',
   address: '',
   phone: ''
-};
-
-const handleDragOver = event => {
-  event.stopPropagation();
-  event.preventDefault();
-  event.dataTransfer.dropEffect = 'copy';
-};
-
-const handleDragEnter = event => {
-  event.stopPropagation();
-  event.preventDefault();
-};
-
-const handleDragLeave = event => {
-  event.stopPropagation();
-  event.preventDefault();    
-};
-
-let AddInvoice = ({ dispatch }) => {
-
-  const styles = {'minHeight': '200px', 'background': 'tomato'}
-  return (
-    <div style={styles}
-         onDragEnter={handleDragEnter} 
-         onDragLeave={handleDragLeave} 
-         onDragOver={handleDragOver} 
-         onDrop={event => {
-          event.stopPropagation()
-          event.preventDefault()
-
-          const data  = event.dataTransfer
-          const files = data.files
-
-          const newInvoiceUploads = Object.keys(files)
-            .map(key => files[key])
-            .map(file => {
-              const invoiceObject = {}
-              invoiceObject.files = [file]
-              invoiceObject.recipientData = Object.assign({}, recipientDataDefaults)
-              return invoiceObject
-            });
-
-          newInvoiceUploads.forEach(invoice => dispatch(addInvoice(invoice)))
-
-    }}>
-      Drag to upload an invoice
-    </div>
-  )
 }
-AddInvoice = connect()(AddInvoice)
+
+const mapStateToProps = state => ({
+  isDragging: state.dropbox.isDragging
+})
+
+const mapDispatchToProps = dispatch => ({
+  handleDragOver: event => {
+    event.stopPropagation()
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'copy'
+  },
+
+  handleDragEnter: event => {
+    event.stopPropagation()
+    event.preventDefault()
+    dispatch(setDragActive())
+  },
+
+  handleDragLeave: event => {
+    event.stopPropagation()
+    event.preventDefault()
+    dispatch(setDragInactive())
+  },
+
+  handleDrop: event => {
+    event.stopPropagation()
+    event.preventDefault()
+    dispatch(setDragInactive())
+
+    const data  = event.dataTransfer
+    const files = data.files
+
+    const newInvoiceUploads = Object.keys(files)
+      .map(key => files[key])
+      .map(file => {
+        const invoiceObject = {}
+        invoiceObject.files = [file]
+        invoiceObject.recipientData = Object.assign({}, recipientDataDefaults)
+        return invoiceObject
+      })
+
+    newInvoiceUploads.forEach(invoice => dispatch(addInvoice(invoice)))
+
+  }
+})
+
+const AddInvoice = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dropbox)
 
 export default AddInvoice
