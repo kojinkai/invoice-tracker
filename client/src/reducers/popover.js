@@ -5,14 +5,15 @@ const defaults = {
 const popover = (state = defaults, action) => {
   switch (action.type) {
     case 'SHOW_POPOVER':
-      const isShowing = {}
-      isShowing.isActive = true
-      return isShowing      
+      
+      return {
+        isActive: true
+      }
 
     case 'CLOSE_POPOVER':
-      const isHiding = {}
-      isHiding.isActive = false    
-      return isHiding;
+      return {
+        isActive: false
+      }
 
     default:
       return state
