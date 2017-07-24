@@ -13,7 +13,7 @@ const Popover = ({ handleCancel, handleSubmit, isActive }) => {
   return (
     <div className={popoverModifiers}>
       <div className="popover__content">
-        <EditForm onSubmit={handleSubmit} />
+        <EditForm onSubmit={handleSubmit} handleCancel={handleCancel} />
       </div>
     </div>
   )

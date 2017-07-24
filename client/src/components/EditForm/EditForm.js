@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import Button from '../Button/Button'
 import './EditForm.css'
 
-let EditForm = ({ handleSubmit }) => {
+let EditForm = ({ handleSubmit, handleCancel }) => {
 
   return (
     <form onSubmit={ handleSubmit }>
@@ -21,10 +22,18 @@ let EditForm = ({ handleSubmit }) => {
       </div>
       <div className="editform__actions">
         <Button type="submit" value="submit" />
-        <Button value="cancel" />
+        <Button value="cancel" handleClick={event => {
+          event.preventDefault()
+          handleCancel()
+        }}/>
       </div>
     </form>
   )
+}
+
+EditForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  handleCancel: PropTypes.func.isRequired
 }
 
 EditForm = reduxForm({
