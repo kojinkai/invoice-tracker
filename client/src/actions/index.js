@@ -1,3 +1,5 @@
+import invoicesApi from '../api/invoices'
+
 let nextInvoiceId = 0
 
 export const setDragActive = () => ({
@@ -35,3 +37,31 @@ export const showPopover = () => ({
 export const closePopover = () => ({
   type: 'CLOSE_POPOVER'
 })
+
+export const postInvoices = () => ({
+  type: 'POST_INVOICES'
+})
+
+export const postFailure = () => ({
+  type: 'POST_INVOICES_FAIL'
+})
+
+const receivePosts = () => ({
+  type: 'POST_SUCCESS',
+  receivedAt: Date.now()
+})
+
+export const postCompletedInvoices = () => {
+  return (dispatch, getState) => {
+    return invoicesApi.postInvoice()
+      .then(response => {
+        dispatch(receivePosts(response))
+      })
+      .then(
+        response => {
+          dispatch(receivePosts(response))
+        },
+        error => dispatch(postFailure(error))
+      );
+  };
+}
