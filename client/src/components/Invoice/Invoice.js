@@ -13,6 +13,8 @@ const Invoice = ({ invoice, handleClick }) => {
   const recipientData = Object.keys(invoice.recipientData).map((key, index) => {
     if (invoice.recipientData[key] !== '') {
       return (<div key={index} className="invoice__recipient-data">{key} : {invoice.recipientData[key]}</div>)
+    } else {
+      return (<div key={index}></div>)
     }
   });
 

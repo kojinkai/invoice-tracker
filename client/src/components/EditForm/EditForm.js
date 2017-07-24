@@ -37,7 +37,6 @@ EditForm.propTypes = {
 }
 
 EditForm = reduxForm({
-  // a unique name for the form
   form: 'recipientData'
 })(EditForm)
 
