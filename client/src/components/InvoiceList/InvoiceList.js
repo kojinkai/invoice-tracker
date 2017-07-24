@@ -11,7 +11,7 @@ const InvoiceList = ({ invoices, handleEditInvoice }) => {
         {invoices.map(invoice =>
           <Invoice
             key={invoice.id}
-            invoice={invoice.invoiceData}
+            invoice={invoice}
             handleClick={event => {
               event.preventDefault()
               handleEditInvoice(invoice)

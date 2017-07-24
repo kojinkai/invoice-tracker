@@ -38,8 +38,8 @@ export const closePopover = () => ({
   type: 'CLOSE_POPOVER'
 })
 
-export const postInvoices = () => ({
-  type: 'POST_INVOICES'
+export const postingInvoices = () => ({
+  type: 'POST_INVOICES',
 })
 
 export const postFailure = () => ({
@@ -51,12 +51,9 @@ const receivePosts = () => ({
   receivedAt: Date.now()
 })
 
-export const postCompletedInvoices = () => {
+export const postCompletedInvoices = invoices => {
   return (dispatch, getState) => {
-    return invoicesApi.postInvoice()
-      .then(response => {
-        dispatch(receivePosts(response))
-      })
+    return invoicesApi.postInvoices(invoices)
       .then(
         response => {
           dispatch(receivePosts(response))

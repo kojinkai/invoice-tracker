@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { postCompletedInvoices } from '../actions'
+import { postingInvoices, postCompletedInvoices } from '../actions'
 import PostInvoices from '../components/PostInvoices/PostInvoices'
 
 const mapStateToProps = state => ({
@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handlePostInvoices: invoices => {
+    dispatch(postingInvoices())
     dispatch(postCompletedInvoices(invoices))
   }
 })

@@ -2,13 +2,15 @@ const API_BASE_URL = 'http://localhost:3001';
 const RESOURCE     = 'invoices';
 
 const invoiceApi = {
-  postInvoice(data) {
-
+  postInvoices(data) {
+    const postHeaders = new Headers();
+    postHeaders.append('content-type', 'application/json');
     const url = `${API_BASE_URL}/${RESOURCE}`
 
     const request = new Request(url, {
       method: 'POST',
-      body: data
+      headers: postHeaders,
+      body: JSON.stringify(data)
     });
 
     return fetch(request);

@@ -4,15 +4,22 @@ import Button from '../Button/Button';
 import './PostInvoices.css';
 
 const PostInvoices = ({ invoices, handlePostInvoices }) => {
+  const validInvoicesForSubmission = invoices.filter(invoice => {
+    return invoice.isValidForSubmission
+  });
+
+  const isSubmissionBlocked = validInvoicesForSubmission.length < 1;
+
   return (
     <div className="post-invoices">
       <div className="post-invoices__container">
         <Button handleClick={event => {
             console.log('handling button click')
             event.preventDefault()
-            handlePostInvoices(invoices)
+            handlePostInvoices(validInvoicesForSubmission)
         }}
-        value="Post Invoices" />
+        value="Post Invoices"
+        disabled={isSubmissionBlocked} />
       </div>
     </div>
   )
