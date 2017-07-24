@@ -15,6 +15,10 @@ export const saveInvoiceRecipientData = recipientData => ({
   recipientData
 })
 
+export const resetInvoiceEditingState = () => ({
+  type: 'RESET_INVOICE_EDITING_STATE'
+})
+
 export const showPopover = () => ({
   type: 'SHOW_POPOVER'
 })

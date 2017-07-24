@@ -1,9 +1,15 @@
-const find = require('lodash.find');
+import find from 'lodash.find'
 
 const insertInvoiceAtIndex = (state, invoice) => {
   const updatedState = state.concat()
   updatedState.splice(invoice.id, 1, invoice)
   return updatedState
+}
+
+const resetInvoiceEditingState = state => {
+  const resetInvoice = find(state, invoice => invoice.isEditing)
+  resetInvoice.isEditing = false
+  return resetInvoice  
 }
 
 const invoices = (state = [], action) => {
@@ -23,10 +29,15 @@ const invoices = (state = [], action) => {
       const editingInvoice = insertInvoiceAtIndex(state, invoiceToActivate)
       return editingInvoice
 
+    case 'RESET_INVOICE_EDITING_STATE':
+
+      const resettingInvoice = resetInvoiceEditingState(state)
+      const resetState = insertInvoiceAtIndex(state, resettingInvoice)
+      return resetState
+
     case 'SAVE_INVOICE_RECIPIENT_DATA':
 
-      const invoiceToSave = find(state, invoice => invoice.isEditing)
-      invoiceToSave.isEditing = false
+      const invoiceToSave = resetInvoiceEditingState(state)
       invoiceToSave.invoiceData.recipientData = action.recipientData
       const savingInvoice = insertInvoiceAtIndex(state, invoiceToSave)
       return savingInvoice
