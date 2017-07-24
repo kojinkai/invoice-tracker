@@ -1,4 +1,13 @@
 let nextInvoiceId = 0
+
+export const setDragActive = () => ({
+  type: 'SET_DRAG_ACTIVE'
+})
+
+export const setDragInactive = () => ({
+  type: 'SET_DRAG_INACTIVE'
+})
+
 export const addInvoice = invoice => ({
   type: 'ADD_INVOICE',
   id: nextInvoiceId++,

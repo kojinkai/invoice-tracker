@@ -1,0 +1,19 @@
+@import 'styles/colors';
+@import 'styles/grid';
+
+.dropbox {
+  position: relative;
+
+  &__container {
+    @include container;
+  }
+
+  &__droparea {
+    border: 5px dashed $lightash;
+    padding: 2rem;
+
+    &--is-dragging {
+      border-color: $softgreen; 
+    }
+  }
+}
