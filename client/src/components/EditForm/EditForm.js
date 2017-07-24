@@ -3,8 +3,8 @@ import { Field, reduxForm } from 'redux-form'
 import Button from '../Button/Button'
 import './EditForm.css'
 
-let EditForm = props => {
-  const { handleSubmit } = props
+let EditForm = ({ handleSubmit }) => {
+
   return (
     <form onSubmit={ handleSubmit }>
       <div className="editform__input-wrap editform__input-wrap--oneline">
