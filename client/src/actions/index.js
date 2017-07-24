@@ -46,19 +46,17 @@ export const postFailure = () => ({
   type: 'POST_INVOICES_FAIL'
 })
 
-const receivePosts = () => ({
+const receivePosts = response => ({
   type: 'POST_SUCCESS',
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
+  response
 })
 
 export const postCompletedInvoices = invoices => {
   return (dispatch, getState) => {
     return invoicesApi.postInvoices(invoices)
-      .then(
-        response => {
-          dispatch(receivePosts(response))
-        },
-        error => dispatch(postFailure(error))
-      );
-  };
+      .then(response => response.json())
+      .then(response => dispatch(receivePosts(response)))
+      .catch(error => dispatch(postFailure(error)))
+  }
 }
