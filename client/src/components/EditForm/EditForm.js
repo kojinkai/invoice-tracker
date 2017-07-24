@@ -21,6 +21,7 @@ let EditForm = ({ handleSubmit }) => {
       </div>
       <div className="editform__actions">
         <Button type="submit" value="submit" />
+        <Button value="cancel" />
       </div>
     </form>
   )

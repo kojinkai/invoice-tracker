@@ -21,7 +21,7 @@ const Invoice = ({ invoice, handleClick }) => {
       <form className="invoice__form">
         <TextInput id="invoice__input-amount" placeholder="enter invoice amount" label="Invoice Amount" />
         <TextInput id="invoice__input-target" placeholder="enter payment target" label="Payment Target" />
-        <Button value="Add recipient" onClick={handleClick} />
+        <Button value="Add recipient" handleClick={handleClick} />
       </form>
 
       <div className="invoice__files">{fileNames}</div>
