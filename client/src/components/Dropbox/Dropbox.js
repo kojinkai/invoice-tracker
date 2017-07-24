@@ -12,13 +12,17 @@ const Dropbox = ({ handleDragEnter, handleDragLeave, handleDragOver, handleDrop,
   const dropboxInstructionText = isDragging ? 'Drop your files here' : 'Drag your files here'
 
   return (
-    <div className={dropboxModifiers}
-         onDragEnter={handleDragEnter}
-         onDragLeave={handleDragLeave}
-         onDragOver={handleDragOver}
-         onDrop={handleDrop}>
-      {dropboxInstructionText}
-    </div>
+    <section className="dropbox">
+      <div className="dropbox__container">
+        <div className={dropboxModifiers}
+             onDragEnter={handleDragEnter}
+             onDragLeave={handleDragLeave}
+             onDragOver={handleDragOver}
+             onDrop={handleDrop}>
+          {dropboxInstructionText}
+        </div>
+      </div>
+    </section>
   )
 }
 
