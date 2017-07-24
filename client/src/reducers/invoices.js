@@ -6,7 +6,7 @@ const insertInvoiceAtIndex = (state, invoice) => {
   return updatedState
 }
 
-const resetInvoiceEditingState = state => {
+const getResetInvoices = state => {
   const resetInvoice = find(state, invoice => invoice.isEditing)
   resetInvoice.isEditing = false
   return resetInvoice  
@@ -31,13 +31,13 @@ const invoices = (state = [], action) => {
 
     case 'RESET_INVOICE_EDITING_STATE':
 
-      const resettingInvoice = resetInvoiceEditingState(state)
-      const resetState = insertInvoiceAtIndex(state, resettingInvoice)
+      const invoiceToReset = getResetInvoices(state)
+      const resetState = insertInvoiceAtIndex(state, invoiceToReset)
       return resetState
 
     case 'SAVE_INVOICE_RECIPIENT_DATA':
 
-      const invoiceToSave = resetInvoiceEditingState(state)
+      const invoiceToSave = getResetInvoices(state)
       invoiceToSave.invoiceData.recipientData = action.recipientData
       const savingInvoice = insertInvoiceAtIndex(state, invoiceToSave)
       return savingInvoice
