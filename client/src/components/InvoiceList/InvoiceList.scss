@@ -1,0 +1,19 @@
+@import 'styles/colors';
+@import 'styles/grid';
+
+.invoice-list {
+  margin-top: 1rem;
+
+  &__container {
+    @include container;
+  }
+
+  &__dropbox {
+    border: 5px dashed $lightash;
+    padding: 2rem;
+
+    &--is-dragging {
+      border-color: $softgreen; 
+    }
+  }
+}

@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Invoice from '../Invoice/Invoice'
+import './InvoiceList.css'
 
 const InvoiceList = ({ invoices, handleEditInvoice }) => {
 
   return (
-      <div>
+    <section className="invoice-list">
+      <div className="invoice-list__container">
         {invoices.map(invoice =>
           <Invoice
             key={invoice.id}
@@ -17,6 +19,7 @@ const InvoiceList = ({ invoices, handleEditInvoice }) => {
           />
         )}
       </div>
+    </section>
   )
 }
 
