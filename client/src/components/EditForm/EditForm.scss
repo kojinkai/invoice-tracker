@@ -1,0 +1,25 @@
+.editform {
+
+  &__input-wrap {
+    &--oneline {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: .5rem;
+
+    &--oneline {
+      margin-bottom: 0;
+      line-height: 2.875rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }  
+}

@@ -1,5 +1,6 @@
 /* Global Reset */
 @import 'styles/colors';
+@import 'styles/inputs';
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +20,11 @@ body {
 button {
   border: 0;
   background: 0;
+}
+
+[type="text"] {
+  @include textfield;
+  display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {
