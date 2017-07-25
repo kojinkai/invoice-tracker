@@ -4,9 +4,8 @@ import Button from '../Button/Button';
 import './PostInvoices.css';
 
 const PostInvoices = ({ invoices, handlePostInvoices }) => {
-  const validInvoicesForSubmission = invoices.filter(invoice => {
-    return invoice.isValidForSubmission
-  });
+
+  const validInvoicesForSubmission = invoices.filter(invoice => invoice.isValidForSubmission);
 
   const isSubmissionBlocked = validInvoicesForSubmission.length < 1;
 
