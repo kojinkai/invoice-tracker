@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button/Button';
-import './PostInvoices.css';
+import Button from '../Button/Button'
+import './PostInvoices.css'
 
 const PostInvoices = ({ invoices, handlePostInvoices }) => {
 
-  const validInvoicesForSubmission = invoices.filter(invoice => invoice.isValidForSubmission);
+  const validInvoicesForSubmission = invoices.filter(invoice => invoice.isValidForSubmission)
 
-  const isSubmissionBlocked = validInvoicesForSubmission.length < 1;
+  const isSubmissionBlocked = validInvoicesForSubmission.length < 1
 
   return (
     <div className="post-invoices">
@@ -33,4 +33,4 @@ PostInvoices.propTypes = {
   handlePostInvoices: PropTypes.func.isRequired
 }
 
-export default PostInvoices;
+export default PostInvoices

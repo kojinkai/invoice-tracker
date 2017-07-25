@@ -1,7 +1,7 @@
 const defaults = {
   isFetching: false,
   response: ''
-};
+}
 
 function postInvoices(state = defaults, action) {
 

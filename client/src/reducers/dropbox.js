@@ -5,7 +5,7 @@ const dropbox = (state = defaults, action) => {
 
     case 'SET_DRAG_ACTIVE':
     case 'SET_DRAG_INACTIVE':
-      const activeState = Object.assign({}, state, { isDragging: !state.isDragging });
+      const activeState = Object.assign({}, state, { isDragging: !state.isDragging })
       return activeState
 
     default:

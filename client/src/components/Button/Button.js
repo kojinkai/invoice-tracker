@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
-import './button.css';
+import './button.css'
 
 const Button = ({ value, type, disabled, handleClick }) => (
   <button className="button" type={type} disabled={disabled} onClick={handleClick}>
@@ -15,4 +15,4 @@ Button.propTypes = {
   handleClick: PropTypes.func
 }
 
-export default Button;
+export default Button

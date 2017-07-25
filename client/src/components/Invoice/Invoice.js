@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TextInput from '../TextInput/TextInput';
-import createModifiers from '../../lib/createModifiers';
-import Button from '../Button/Button';
+import TextInput from '../TextInput/TextInput'
+import createModifiers from '../../lib/createModifiers'
+import Button from '../Button/Button'
 import './invoice.css'
 
 const Invoice = ({ invoice, handleClick }) => {
 
   const fileNames = invoice.files.map((file, index) => {
     return (<div key={index} className="invoice__file-title-legend">{file.name}</div>)
-  });
+  })
 
   const recipientData = Object.keys(invoice.recipientData).map((key, index) => {
     
@@ -17,7 +17,7 @@ const Invoice = ({ invoice, handleClick }) => {
       'is-populated': invoice.recipientData[key] !== ''
     })  
     return (<div key={index} className={recipientDataModifiers}>{key} : {invoice.recipientData[key]}</div>)
-  });
+  })
 
   const invoiceModifiers = createModifiers('invoice', {
     'is-valid': invoice.isValidForSubmission
