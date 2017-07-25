@@ -49,6 +49,10 @@ const invoices = (state = [], action) => {
       const savedInvoice = insertInvoiceAtIndex(state, invoiceToSave.id, invoiceToSave)
       return savedInvoice
 
+    case 'REMOVE_SAVED_INVOICES':
+      const inCompleteInvoices = state.filter(invoice => !invoice.isValidForSubmission)
+      return inCompleteInvoices
+
     default:
       return state
   }
