@@ -52,11 +52,18 @@ const receivePostResponse = response => ({
   response
 })
 
+const removeSavedInvoices = () => ({
+  type: 'REMOVE_SAVED_INVOICES'
+})
+
 export const postCompletedInvoices = invoices => {
   return (dispatch, getState) => {
     return invoicesApi.postInvoices(invoices)
       .then(response => response.text())
-      .then(response => dispatch(receivePostResponse(response)))
+      .then(response => {
+        dispatch(receivePostResponse(response))
+        dispatch(removeSavedInvoices())
+      })
       .catch(error => dispatch(postFailure(error)))
   }
 }
