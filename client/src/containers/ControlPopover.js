@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 
   const activeInvoiceData = find(state.invoices, invoice => invoice.isEditing)
   const activeInvoiceRecipientData = !isUndefined(activeInvoiceData)
-    ? activeInvoiceData.invoiceData.recipientData 
+    ? activeInvoiceData.recipientData 
     : {}
 
   return {

@@ -13,7 +13,7 @@ export const setDragInactive = () => ({
 export const addInvoice = invoice => ({
   type: 'ADD_INVOICE',
   id: nextInvoiceId++,
-  invoiceData: invoice
+  invoice
 })
 
 export const setActiveInvoice = invoice => ({
