@@ -46,4 +46,4 @@ EditForm = reduxForm({
   enableReinitialize: true
 })(EditForm)
 
-export default EditForm;
+export default EditForm

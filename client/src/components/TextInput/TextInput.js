@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import createModifiers from '../../lib/createModifiers';
+import createModifiers from '../../lib/createModifiers'
 
 import './TextInput.css'
 
 const TextInput = ({ display, id, placeholder, label, name, value, onChange }) => {
 
-  const isOneLine = display === 'oneline';
+  const isOneLine = display === 'oneline'
 
   const inputWrapModifiers = createModifiers('textinput__input-wrap', {
     'oneline': isOneLine
-  });
+  })
   
   const labelModifiers = createModifiers('textinput__label', {
     'oneline': isOneLine
-  });
+  })
 
   return (
     <div className={inputWrapModifiers}>

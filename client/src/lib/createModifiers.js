@@ -3,9 +3,9 @@ const createModifiers = (element, modifiers) => {
     .filter(key => modifiers[key])
     .map(modifier => `${element}--${modifier}`)
     .concat(element)
-    .join(' ');
+    .join(' ')
 
-  return classList;
+  return classList
 }
 
-export default createModifiers;
+export default createModifiers

@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import createModifiers from '../../lib/createModifiers';
+import createModifiers from '../../lib/createModifiers'
 import './Dropbox.css'
 
 const Dropbox = ({ handleDragEnter, handleDragLeave, handleDragOver, handleDrop, isDragging }) => {
 
   const dropboxModifiers = createModifiers('dropbox__droparea', {
     'is-dragging': isDragging
-  });
+  })
 
   const dropboxInstructionText = isDragging ? 'Drop your files here' : 'Drag your files here'
 

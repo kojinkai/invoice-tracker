@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import createModifiers from '../../lib/createModifiers';
+import createModifiers from '../../lib/createModifiers'
 import EditForm from '../EditForm/EditForm'
-import './Popover.css';
+import './Popover.css'
 
 const Popover = ({ handleCancel, handleSubmit, isActive, initialValues }) => {
 
