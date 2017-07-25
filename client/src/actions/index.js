@@ -1,7 +1,5 @@
 import invoicesApi from '../api/invoices'
 
-let nextInvoiceId = 0
-
 export const setDragActive = () => ({
   type: 'SET_DRAG_ACTIVE'
 })
@@ -12,7 +10,6 @@ export const setDragInactive = () => ({
 
 export const addInvoice = invoice => ({
   type: 'ADD_INVOICE',
-  id: nextInvoiceId++,
   invoice
 })
 
