@@ -13,13 +13,13 @@ function postInvoices(state = defaults, action) {
     case 'POST_SUCCESS':
       return Object.assign({}, state, {
         isFetching: false,
-        response: '',
+        response: action.response,
         lastUpdated: action.receivedAt
       })
     case 'POST_INVOICES_FAIL':
       return Object.assign({}, state, {
         isFetching: false,
-        response: '',
+        response: action.response,
         lastUpdated: action.receivedAt
       })      
     default:
