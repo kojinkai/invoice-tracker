@@ -16,7 +16,7 @@ const invoices = (state = [], action) => {
 
     case 'ADD_INVOICE':
       const newInvoice = Object.assign({}, action.invoice, {
-        id: action.id,
+        id: state.length,
         isValidForSubmission: false
       })
       const updatedState = state.concat(newInvoice);
@@ -50,7 +50,12 @@ const invoices = (state = [], action) => {
       return savedInvoice
 
     case 'REMOVE_SAVED_INVOICES':
-      const inCompleteInvoices = state.filter(invoice => !invoice.isValidForSubmission)
+      const inCompleteInvoices = state
+        .filter(invoice => !invoice.isValidForSubmission)
+        .map((invoice, index) => {
+          invoice.id = index
+          return invoice
+        })
       return inCompleteInvoices
 
     default:
