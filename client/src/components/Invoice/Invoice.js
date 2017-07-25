@@ -6,18 +6,17 @@ import Button from '../Button/Button';
 import './invoice.css'
 
 const Invoice = ({ invoice, handleClick }) => {
-  const { invoiceData } = invoice
 
-  const fileNames = invoiceData.files.map((file, index) => {
+  const fileNames = invoice.files.map((file, index) => {
     return (<div key={index} className="invoice__file-title-legend">{file.name}</div>)
   });
 
-  const recipientData = Object.keys(invoiceData.recipientData).map((key, index) => {
+  const recipientData = Object.keys(invoice.recipientData).map((key, index) => {
     
     const recipientDataModifiers = createModifiers('invoice__recipient-datum', {
-      'is-populated': invoiceData.recipientData[key] !== ''
+      'is-populated': invoice.recipientData[key] !== ''
     })  
-    return (<div key={index} className={recipientDataModifiers}>{key} : {invoiceData.recipientData[key]}</div>)
+    return (<div key={index} className={recipientDataModifiers}>{key} : {invoice.recipientData[key]}</div>)
   });
 
   const invoiceModifiers = createModifiers('invoice', {

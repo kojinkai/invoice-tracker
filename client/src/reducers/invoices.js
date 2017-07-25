@@ -15,11 +15,11 @@ const invoices = (state = [], action) => {
   switch (action.type) {
 
     case 'ADD_INVOICE':
-      const updatedState = state.concat({
+      const newInvoice = Object.assign({}, action.invoice, {
         id: action.id,
-        invoiceData: action.invoiceData,
         isValidForSubmission: false
-      });
+      })
+      const updatedState = state.concat(newInvoice);
       return updatedState
 
     case 'SET_ACTIVE_INVOICE':
@@ -36,13 +36,13 @@ const invoices = (state = [], action) => {
     case 'SAVE_INVOICE_RECIPIENT_DATA':
 
       const invoiceToSave = getResetEditingState(state)
-      invoiceToSave.invoiceData.recipientData = action.recipientData
+      invoiceToSave.recipientData = action.recipientData
 
       // run basic validation on the object to see if all fields are complete.
       // Allow partially complete objects to be saved but not submitted
-      const recipientDataKeys = Object.keys(invoiceToSave.invoiceData.recipientData);
+      const recipientDataKeys = Object.keys(invoiceToSave.recipientData);
       const populatedFields = recipientDataKeys.filter(key => {
-        return invoiceToSave.invoiceData.recipientData[key] !== ''
+        return invoiceToSave.recipientData[key] !== ''
       });
 
       invoiceToSave.isValidForSubmission = populatedFields.length === recipientDataKeys.length

@@ -26,7 +26,8 @@ const PostInvoices = ({ invoices, handlePostInvoices }) => {
 PostInvoices.propTypes = {
   invoices: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    invoiceData: PropTypes.object,
+    files: PropTypes.array,
+    recipientData: PropTypes.object,
     isEditing: PropTypes.bool
   }).isRequired).isRequired,
   handlePostInvoices: PropTypes.func.isRequired

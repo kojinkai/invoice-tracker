@@ -26,7 +26,8 @@ const InvoiceList = ({ invoices, handleEditInvoice }) => {
 InvoiceList.propTypes = {
   invoices: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    invoiceData: PropTypes.object
+    files: PropTypes.array,
+    recipientData: PropTypes.object
   }).isRequired).isRequired,
   handleEditInvoice: PropTypes.func.isRequired
 }
