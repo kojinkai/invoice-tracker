@@ -7,7 +7,7 @@ const insertInvoiceAtIndex = (state, index, invoice) => {
 }
 
 const getResetEditingState = state => {
-  const resetInvoice = Object.assign(find(state, invoice => invoice.isEditing), { isEditing: false })
+  const resetInvoice = Object.assign({}, find(state, invoice => invoice.isEditing), { isEditing: false })
   return resetInvoice  
 }
 
@@ -23,7 +23,7 @@ const invoices = (state = [], action) => {
       return updatedState
 
     case 'SET_ACTIVE_INVOICE':
-      const invoiceToActivate = Object.assign(find(state, invoice => invoice.id === action.invoice.id), { isEditing: true })
+      const invoiceToActivate = Object.assign({}, find(state, invoice => invoice.id === action.invoice.id), { isEditing: true })
       const editingInvoice = insertInvoiceAtIndex(state, invoiceToActivate.id, invoiceToActivate)
       return editingInvoice
 
