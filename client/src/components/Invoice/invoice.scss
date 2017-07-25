@@ -3,8 +3,14 @@
 .invoice {
   background: $white;
   border: 1px solid $lightash;
+  border-radius: 4px;
   margin-bottom: 1rem;
   padding: 2rem;
+  transition: background 0.3s ease-in-out;
+
+  &--is-valid {
+    background: $softgreen;
+  }
 
   &__form {
     align-items: flex-end; 

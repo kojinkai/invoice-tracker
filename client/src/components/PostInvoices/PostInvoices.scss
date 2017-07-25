@@ -1,0 +1,9 @@
+@import 'styles/grid';
+
+.post-invoices {
+  &__container {
+    @include container;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
